@@ -1,0 +1,4 @@
+PS1='\[\e[1;30m\][\[\e[m\]\[\e[1;35m\]\u@\h\[\e[m\] \[\e[1;34m\]\W\[\e[m\]\[\e[1;30m\]]\[\e[m\]\[\e[1;30m\]\$\[\e[m\] '
+VISUAL=vim
+EDITOR=$VISUAL
+export EDITOR VISUAL PS1
