@@ -1,4 +1,4 @@
-" Hitting tab will be spaces
+" Hitting tab will be tabs
 set noexpandtab 
 " How many columns a tab counts for
 set tabstop=8
