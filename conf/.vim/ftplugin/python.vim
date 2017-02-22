@@ -7,6 +7,11 @@ set shiftwidth=4
 " How many columns vim uses when you hit Tab in insert mode
 set softtabstop=4
 
+if exists('+colorcolumn')
+  set colorcolumn=81
+  highlight ColorColumn ctermbg=yellow
+endif
+
 " Run PymodeLint when writing to buffer
 autocmd BufWrite * PymodeLint
 
