@@ -1,3 +1,8 @@
+set encoding=utf-8
+
+let python_highlight_all=1
+syntax on
+
 " Hitting tab will be spaces
 set expandtab 
 " How many columns a tab counts for
@@ -12,8 +17,13 @@ if exists('+colorcolumn')
   highlight ColorColumn ctermbg=yellow
 endif
 
-" Run PymodeLint when writing to buffer
-autocmd BufWrite * PymodeLint
+let NERDTreeIgnore=['\.pyc$', '\~$', '__pycache__'] "ignore files in NERDTree
+
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+let g:SimpylFold_docstring_preview=1
+NERDTreeToggle
 
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
