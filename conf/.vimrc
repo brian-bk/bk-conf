@@ -11,11 +11,21 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'jnurmine/Zenburn'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'python-mode/python-mode'
 
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-fugitive'
 Plugin 'valloric/MatchTagAlways'
+Plugin 'valloric/YouCompleteMe'
 
-Plugin 'klen/python-mode'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'VundleVim/Vundle.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -79,10 +89,42 @@ noremap <Down> g<Down>
 " Set character wrapping for l and h
 set whichwrap+=h,l
 " Page Down for spacebar and Up for -
-noremap <Space> <PageDown>
-noremap - <PageUp>
+" noremap <Space> <PageDown>
+" noremap - <PageUp>
 
-"
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+nnoremap J <PageDown>
+nnoremap K <PageUp>
+
+if has('gui_running')
+  set background=dark
+  colorscheme solarized
+else
+  colorscheme zenburn
+endif
+
+call togglebg#map("<F5>")
+
+set clipboard=unnamed
+
+set laststatus=2
+
+nnoremap <C-m> :NERDTreeToggle<CR>
+nnoremap <Space> za
+
+set foldmethod=indent
+set foldlevel=99
+
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+let g:syntastic_check_on_open = 0
+nnoremap <F6> :SyntasticCheck<CR>
+let g:syntastic_quiet_messages={'level':'warnings'}
+
 """""" DEFAULT CONFIGS
 "    " Hitting tab will actually be a tab
 "    setlocal noexpandtab 
