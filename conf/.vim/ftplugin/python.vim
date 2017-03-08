@@ -23,7 +23,16 @@ let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 let g:SimpylFold_docstring_preview=1
-NERDTreeToggle
+
+nnoremap J <PageDown>
+nnoremap K <PageUp>
+
+let pymode_doc=1
+let pymode_doc_key='D'
+let pymode_doc_bind='D'
+let pymode_rope_completion=0
+let pymode_rope_complete_on_dot=0
+let pymode_rope_autoimport_modules = []
 
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
