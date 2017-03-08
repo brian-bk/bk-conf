@@ -21,7 +21,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'valloric/MatchTagAlways'
-Plugin 'valloric/YouCompleteMe'
+"Plugin 'valloric/YouCompleteMe'
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -29,6 +29,11 @@ Plugin 'VundleVim/Vundle.vim'
 
 call vundle#end()
 filetype plugin indent on
+
+let pymode=1
+let pymode_doc=0
+let pymode_rope_completion=0
+let pymode_rope_complete_on_dot=0
 
 
 """""""""""""""""""" CONFIGURATION
@@ -123,7 +128,13 @@ set foldlevel=99
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 let g:syntastic_check_on_open = 0
 nnoremap <F6> :SyntasticCheck<CR>
+nnoremap <F7> :SyntasticReset<CR>
 let g:syntastic_quiet_messages={'level':'warnings'}
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+let g:airline_theme='powerlineish'
 
 """""" DEFAULT CONFIGS
 "    " Hitting tab will actually be a tab
