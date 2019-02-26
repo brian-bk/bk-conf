@@ -5,41 +5,9 @@ set nocompatible
 autocmd BufNewFile,BufReadPost *.conf set filetype=conf
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
-""""" VUNDLE
-filetype off                  " required
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'jnurmine/Zenburn'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'python-mode/python-mode'
-
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-fugitive'
-Plugin 'valloric/MatchTagAlways'
-"Plugin 'valloric/YouCompleteMe'
-
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'VundleVim/Vundle.vim'
-
-call vundle#end()
 filetype plugin indent on
 
-let pymode=1
-let pymode_doc=0
-let pymode_rope_completion=0
-let pymode_rope_complete_on_dot=0
-
-
 """""""""""""""""""" CONFIGURATION
-" Color scheme
-"set t_Co=256
-
 " Turn on syntax highlighting
 syntax enable
  " Always show current postion
@@ -94,75 +62,34 @@ noremap <Down> g<Down>
 " Set character wrapping for l and h
 set whichwrap+=h,l
 " Page Down for spacebar and Up for -
-" noremap <Space> <PageDown>
-" noremap - <PageUp>
-
-"split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 
 nnoremap J <PageDown>
 nnoremap K <PageUp>
-
-if has('gui_running')
-  set background=dark
-  colorscheme solarized
-else
-  colorscheme zenburn
-endif
-
-call togglebg#map("<F5>")
 
 set clipboard=unnamed
 
 set laststatus=2
 
-nnoremap <C-m> :NERDTreeToggle<CR>
-nnoremap <Space> za
-
 set foldmethod=indent
 set foldlevel=99
 
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
-let g:syntastic_check_on_open = 0
-nnoremap <F6> :SyntasticCheck<CR>
-nnoremap <F7> :SyntasticReset<CR>
-let g:syntastic_quiet_messages={'level':'warnings'}
-
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-let g:airline_theme='powerlineish'
-
 """""" DEFAULT CONFIGS
 "    " Hitting tab will actually be a tab
-"    setlocal noexpandtab 
+    setlocal noexpandtab 
 "    " How many columns a tab counts for
-"    setlocal tabstop=4
+    setlocal tabstop=4
 "    " How many columns text is indented with reindent operations
-"    setlocal shiftwidth=4
+    setlocal shiftwidth=4
 "    " How many columns vim uses when you hit Tab in insert mode
-"    setlocal softtabstop=4
+    setlocal softtabstop=4
 "    " Round indent to multiple of 'shiftwidth'
-"    set shiftround    
+    set shiftround    
 "    " Be smart when using tabs
-"    set smarttab
+    set smarttab
 "    " Smart indent
-"    set si
-"    " Lines longer than 79 columns will be broken
-"    set textwidth=79
+    set si
+"    " Lines longer than 119 columns will be broken
+    set textwidth=119
 "    " Align the new line indent with the previous line
-"    set autoindent
-"
-"""""" SETTINGS for languages without full language files
-"autocmd Filetype c setlocal noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
-"autocmd Filetype java setlocal expandtab softtabstop=4 shiftwidth=4
-"autocmd Filetype html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-"autocmd Filetype javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-"autocmd Filetype xhtml setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-"autocmd Filetype jsp setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
-"autocmd Filetype conf setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-"autocmd Filetype markdown setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-"autocmd Filetype yaml setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+    set autoindent
+

@@ -4,9 +4,9 @@ CONF_DIR=$(cd conf && pwd)/
 
 function link_conf()
 {
-  for FILE in $(ls -A ${CONF_DIR}); do
-    SRC_FILE=${CONF_DIR}${FILE}
-    LINK_LOCATION=~/${SRC_FILE#$CONF_DIR}
+  for SRC_FILE in `find "${CONF_DIR}" -type f`; do
+    LINK_LOCATION=~/"${SRC_FILE#$CONF_DIR}"
+	mkdir -p `dirname "${LINK_LOCATION}"`
     if [ -h ${LINK_LOCATION} ]; then
       LINK_TARGET=$(readlink ${LINK_LOCATION})
       if [ ! ${LINK_TARGET} = ${SRC_FILE} ]; then
@@ -37,14 +37,5 @@ fi" >> ~/.bashrc
   fi
 }
 
-vim_packages_install()
-{
-  if [ ! -e ${CONF_DIR}.vim/bundle/Vundle.vim ]; then
-    git clone https://github.com/VundleVim/Vundle.vim.git ${CONF_DIR}.vim/bundle/Vundle.vim
-  fi
-  vim +PluginInstall +qall
-}
-
 link_conf
 bkbashrc_add
-vim_packages_install
