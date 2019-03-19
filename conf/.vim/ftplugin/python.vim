@@ -13,7 +13,7 @@ set shiftwidth=4
 set softtabstop=4
 
 if exists('+colorcolumn')
-  set colorcolumn=81
+  set colorcolumn=121
   highlight ColorColumn ctermbg=yellow
 endif
 
