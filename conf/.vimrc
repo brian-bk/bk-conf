@@ -4,6 +4,7 @@ set nocompatible
 """"" ADDITIONAL FILETYPES
 autocmd BufNewFile,BufReadPost *.conf set filetype=conf
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufReadPost *.sh set filetype=bash
 
 filetype plugin indent on
 
