@@ -75,14 +75,14 @@ set foldmethod=indent
 set foldlevel=99
 
 """""" DEFAULT CONFIGS
-"    " Hitting tab will actually be a tab
-    setlocal noexpandtab 
+"    " Hitting tab will be spaces
+    setlocal expandtab 
 "    " How many columns a tab counts for
-    setlocal tabstop=4
+    setlocal tabstop=8
 "    " How many columns text is indented with reindent operations
-    setlocal shiftwidth=4
+    setlocal shiftwidth=4 smarttab
 "    " How many columns vim uses when you hit Tab in insert mode
-    setlocal softtabstop=4
+    setlocal softtabstop=8
 "    " Round indent to multiple of 'shiftwidth'
     set shiftround    
 "    " Be smart when using tabs
